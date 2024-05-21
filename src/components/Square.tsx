@@ -1,10 +1,10 @@
-interface Props{
-    value: String;
-}
+import { useState } from "react";
 
-function Square({value}: Props) {
+function Square() {
+    const [value, setValue] = useState('');
     function handleClick(){
-        console.log('clicked');
+        
+        setValue('X');
     }
   return <button className="square" onClick={handleClick}>{value}</button>;
 }
