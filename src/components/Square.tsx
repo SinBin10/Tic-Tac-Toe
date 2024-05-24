@@ -1,10 +1,11 @@
-interface Props{
-    board: String;
-    handleClick: ()=>void;
-}
+import { useState } from "react";
 
-function Square({board, handleClick}: Props) {
-  return (<button className="square" onClick={()=>{handleClick}}>{board}</button>);
+function Square() {
+  const[value, setValue] = useState('');
+  function handleclick(){
+      setValue('X');
+    }
+  return (<button className="square" onClick={handleclick}>{value}</button>);
 }
 
 export default Square;
