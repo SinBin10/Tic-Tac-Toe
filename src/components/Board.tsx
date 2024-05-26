@@ -3,27 +3,27 @@ import { useState } from "react";
 
 function Board() {
   const [char,setChar] = useState(Array(9).fill(''));
-  function onsquareclick(){
-    console.log(char);
-    char[0] = 'X';
-    setChar(char[0]);
+  function onsquareclick(i: number){
+    const nextSquares = char.slice();
+    nextSquares[i] = 'X';
+    setChar(nextSquares);
   }
   return (
     <>
       <div className="board-row">
-        <Square state={char[0]} handleclick={onsquareclick}/>
-        <Square state={char[1]} handleclick={onsquareclick}/>
-        <Square state={char[2]} handleclick={onsquareclick}/>
+        <Square state={char[0]} handleclick={()=>onsquareclick(0)}/>
+        <Square state={char[1]} handleclick={()=>onsquareclick(1)}/>
+        <Square state={char[2]} handleclick={()=>onsquareclick(2)}/>
       </div>
       <div className="board-row">
-        <Square state={char[3]} handleclick={onsquareclick}/>
-        <Square state={char[4]} handleclick={onsquareclick}/>
-        <Square state={char[5]} handleclick={onsquareclick}/>
+        <Square state={char[3]} handleclick={()=>onsquareclick(3)}/>
+        <Square state={char[4]} handleclick={()=>onsquareclick(4)}/>
+        <Square state={char[5]} handleclick={()=>onsquareclick(5)}/>
       </div>
       <div className="board-row">
-        <Square state={char[6]} handleclick={onsquareclick}/>
-        <Square state={char[7]} handleclick={onsquareclick}/>
-        <Square state={char[8]} handleclick={onsquareclick}/>
+        <Square state={char[6]} handleclick={()=>onsquareclick(6)}/>
+        <Square state={char[7]} handleclick={()=>onsquareclick(7)}/>
+        <Square state={char[8]} handleclick={()=>onsquareclick(8)}/>
       </div>
     </>
   );
