@@ -3,10 +3,15 @@ import { useState } from "react";
 
 function Board() {
   const [char,setChar] = useState(Array(9).fill(''));
+  const [sign,setSign] = useState(true);
   function onsquareclick(i: number){
     const nextSquares = char.slice();
+    if(sign)
     nextSquares[i] = 'X';
+    else
+    nextSquares[i] = 'O';
     setChar(nextSquares);
+    setSign(!sign);
   }
   return (
     <>
